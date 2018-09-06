@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router-dom'
+import { checkAuth } from './helpers'
 import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
 
 class Home extends Component {
@@ -24,18 +25,10 @@ class Home extends Component {
         })
     }
 
-    checkAuth = () => {
-        const token = localStorage.getItem('TestAppAuthToken')
-        if (!token) {
-            return false;
-        }
-        return true
-    }
-
     render() {
         return (
             <Route exact path="/" render={() => (
-                this.checkAuth() ? (
+                checkAuth() ? (
                     <Redirect to="/dashboard" />
                 ) : (
                         <Col sm={4}>

@@ -1,23 +1,18 @@
 import React, { Component } from 'react'
+import { Redirect, Route } from 'react-router-dom'
+import { checkAuth } from './helpers'
+import Home from './Home'
 
 class Dashboard extends Component {
     state = {  }
-    
-    checkAuth = () => {
-        const token = localStorage.getItem('TestAppAuthToken')
-        if (!token) {
-            return false;
-        }
-        return true
-    }
 
     render() {
         return (
-            <Route exact path="/" render={() => (
-                this.checkAuth() ? (
-                    <Redirect to="/" />
+            <Route path="/dashboard" render={() => (
+                checkAuth() ? (
+                    <div>Dashboard</div>                  
                 ) : (
-                        Dashboard
+                    <Redirect to="/" component={Home} />
                     )
             )} />
         );
