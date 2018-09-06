@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(230, 230, 230);
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+    color: white;
+}
