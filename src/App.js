@@ -4,7 +4,7 @@ class App extends Component {
     state = {  }
     render() {
         return (
-            <h1>Halo</h1>
+            <h1>Hal</h1>
         );
     }
 }
