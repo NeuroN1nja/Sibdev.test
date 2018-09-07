@@ -8,13 +8,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <Route path="/dashboard" render={() => (
-                checkAuth() ? (
-                    <div>Dashboard</div>                  
-                ) : (
-                    <Redirect to="/" component={Home} />
-                    )
-            )} />
+            <div>dashboard</div>
         );
     }
 }

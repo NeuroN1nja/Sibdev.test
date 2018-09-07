@@ -8,3 +8,9 @@ body {
 .logo {
     color: white;
 }
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    font-size: 20px;
+    margin-left: 40px;
+}

@@ -7,6 +7,7 @@ class Home extends Component {
     state = {
         email: '',
         password: '',
+        logged: false
     }
 
     handleInputChange = (e) => {
@@ -21,12 +22,20 @@ class Home extends Component {
         localStorage.setItem('TestAppAuthToken', token)
         this.setState({
             email: '',
-            password: ''
+            password: '',
+            logged: true
         })
     }
 
     render() {
+
+        const { from } = this.props.location.state || { from: { pathname: "/settings" } }
+
+        if (this.state.logged) {
+            return <Redirect to={from} />;
+        }
         return (
+            
             <Route exact path="/" render={() => (
                 checkAuth() ? (
                     <Redirect to="/dashboard" />

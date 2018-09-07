@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom'
 import Home from './Home'
 import Dashboard from './Dashboard'
 import NavBar from './NavBar'
+import PrivateRoute from './PrivateRoute'
+import Settings from './Settings'
 
 class App extends Component {
     state = {  }
@@ -12,17 +14,9 @@ class App extends Component {
                 <NavBar />
                 <Switch>
                     <Route exact path='/' component={Home} />
+                    <PrivateRoute path='/dashboard' component={Dashboard} />
+                    <PrivateRoute path='/settings' component={Settings} />
                 </Switch>
-                <Route path='/(.+)' render={() => (
-                    <div>
-                        <div className="main">
-                            <Switch>
-                                <Route path='/dashboard' component={Dashboard} />
-                            </Switch>
-                        </div>
-                    </div>
-                )}
-                />
             </div>
         );
     }
