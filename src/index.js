@@ -4,6 +4,8 @@ import App from './components/App'
 import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
+import { Provider } from 'react-redux';
+import store from './redux/store'
 
 import WebFont from 'webfontloader';
 
@@ -17,9 +19,11 @@ class Root extends Component {
     state = {  }
     render() {
         return (
+        <Provider store={store}>
             <BrowserRouter>
                 <App />
-            </BrowserRouter>    
+            </BrowserRouter>
+        </Provider>  
         );
     }
 }
