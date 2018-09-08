@@ -9,8 +9,12 @@ body {
     color: white;
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link-router, .navbar-light .navbar-nav  .nav-link {
     color: white;
     font-size: 20px;
     margin-left: 40px;
+}
+
+.nav-link {
+    padding: 0;
 }

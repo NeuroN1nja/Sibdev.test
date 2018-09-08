@@ -1,13 +1,29 @@
 import React, { Component } from 'react'
-import { Form, Col, Button } from 'reactstrap';
+import { Form, Col, Button, Row } from 'reactstrap';
 import { composeValidators, combineValidators, isRequired, hasLengthGreaterThan } from 'revalidate'
 import { reduxForm, Field } from 'redux-form'
 import TextInput from './TextInput'
 import { connect } from 'react-redux'
-import {addUser} from './actions'
+import { addUser, updateUser, activeUser, cancelUpdating} from './actions'
 
 const actions = {
-  addUser
+  addUser,
+  updateUser,
+  activeUser,
+  cancelUpdating
+}
+
+const mapState = state => {
+  let user = {}
+
+  if (state.selectedUser.readyForUpdate) {
+    user = state.selectedUser
+  }
+
+  return {
+    initialValues: user,
+    selectedUser: state.selectedUser
+  }
 }
 
 const validate = combineValidators({
@@ -28,14 +44,35 @@ const validate = combineValidators({
 
 class CreateUserForm extends Component {
 
+  state = {
+    user: this.props.user
+  }
+
   onFormSubmit = (values) => {
-    this.props.addUser(values)
+    if (this.props.selectedUser && this.props.selectedUser.readyForUpdate) {
+      this.props.updateUser(values)
+      this.props.activeUser(values)
+    } else {
+      this.props.addUser(values)
+    }
     this.props.reset()
   }
 
+  onFormCancel = () => {
+    if (this.props.selectedUser.readyForUpdate) {
+      this.props.cancelUpdating()
+    }
+    this.props.reset()
+  }
+
+  componentWillUnmount() {
+    this.props.cancelUpdating()
+  }
+
   render() {
+    console.log('render form', this.state.user, this.props)
     return (
-      <Col sm={3}>
+      <Col sm={{ size: 4, order: 2, offset: 1 }}>
         <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
           <Field
             name='name'
@@ -65,14 +102,14 @@ class CreateUserForm extends Component {
             placeholder='City'
             label={'City'}
           />
-          <Button>Create User</Button>{' '}
-          <Button onClick={this.props.reset}>Reset</Button>
+          <Button>Save</Button>{' '}
+          <Button onClick={this.onFormCancel}>Reset</Button>
         </Form>
       </Col>
     )
   }
 }
 
-export default connect(null, actions)(
+export default connect(mapState, actions)(
   reduxForm({ form: 'createUser', enableReinitialize: true, validate })(CreateUserForm)
 )

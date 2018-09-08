@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
-import { Redirect, Route } from 'react-router-dom'
-import { checkAuth } from './helpers'
-import Home from './Home'
+import { Row, Container } from 'reactstrap';
+import ApiCard from './ApiCard'
 
 class Dashboard extends Component {
     state = {  }
 
     render() {
         return (
-            <div>dashboard</div>
+            <Container>
+                <Row>
+                    <ApiCard />
+                    <ApiCard />
+                    <ApiCard />
+                </Row>
+            </Container>
         );
     }
 }

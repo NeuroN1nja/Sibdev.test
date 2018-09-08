@@ -1,28 +1,18 @@
-import React, {Component} from 'react'
+import React from 'react'
+import { Row, Container } from 'reactstrap';
 import CreateUserForm from './UserForm/CreateUserForm'
-import { Button } from 'reactstrap';
+import ActiveUser from './ActiveUser'
 
-class Settings extends Component {
-  state = {
-    isOpened: false
-  }
-  toggleOpenForm = () => {
-    this.setState({
-      isOpened: !this.state.isOpened
-    })
-  }
-  render() {
+
+const Settings = props => {
     return (
-      <div>
-        <Button onClick={this.toggleOpenForm}>
-          {this.state.isOpened ? 'Close form' : 'Add user'}
-        </Button>
-        {this.state.isOpened &&
+      <Container>
+        <Row>
           <CreateUserForm />
-        }
-      </div>
+          <ActiveUser />
+        </Row>
+      </Container>
     )
-  }
 }
 
 export default Settings

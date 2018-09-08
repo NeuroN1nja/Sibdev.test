@@ -18,6 +18,7 @@ WebFont.load({
 class Root extends Component {
     state = {  }
     render() {
+        console.log('render')
         return (
         <Provider store={store}>
             <BrowserRouter>
