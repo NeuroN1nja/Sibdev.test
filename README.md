@@ -1,7 +1,7 @@
-# Webpack 4 config for React
-modules: babel, css, img, audio
+# Тестовое задание
+[Сайт приложения](https://gracious-benz-8db175.netlify.com/dashboard)
 
-# Installation and usage
+# Как запустить:
 
 install:
 ```
