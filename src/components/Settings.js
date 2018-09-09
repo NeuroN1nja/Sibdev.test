@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Container } from 'reactstrap';
-import CreateUserForm from './UserForm/CreateUserForm'
-import ActiveUser from './ActiveUser'
+import CreateUserForm from './Users/CreateUserForm'
+import ActiveUser from './Users/ActiveUser'
 
 
 const Settings = props => {

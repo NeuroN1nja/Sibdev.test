@@ -18,3 +18,27 @@ body {
 .nav-link {
     padding: 0;
 }
+
+.svg-logo-box {
+    height: 50px;
+    opacity: 0.3;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.svg-logo {
+    height: 50px;
+}
+
+.api-card {
+  height: 250px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain;
+}
+
+.cards-title {
+    padding: 10px;
+    background-color: white;
+    opacity: 0.6;
+}

@@ -1,18 +1,12 @@
 import {ADD_USER, ACTIVE_USER, DELETE_USER, UPDATE_USER, SELECT_FOR_UPDATE, CANCEL_UPDATING} from './actions'
 
 export const users = (state = [], action) => {
-    const { id, name, lastname, about, city, type, readyForUpdate } = action
+    const { id, type } = action
     switch (type) {
         case ADD_USER:
             return [
                 ...state,
-                {
-                    id,
-                    name,
-                    lastname,
-                    about,
-                    city
-                }
+                { ...action}
             ]
 
         case DELETE_USER:
@@ -23,14 +17,7 @@ export const users = (state = [], action) => {
             let newState = state.filter(user => user.id !== id)
             return [
                 ...newState,
-                {
-                    id,
-                    name,
-                    lastname,
-                    about,
-                    city,
-                    readyForUpdate
-                }
+                {...action}
             ]
 
     }
@@ -38,16 +25,12 @@ export const users = (state = [], action) => {
 }
 
 export const selectedUser = (state = {}, action) => {
-    const { id, name, lastname, about, city, type } = action
+    const { type} = action
     switch (type) {
         case ACTIVE_USER:
             return {
-                id,
-                name,
-                lastname,
-                about,
-                city,
-                readyForUpdate: false
+                ...action,
+                readyForUpdate: false   
             }
         case SELECT_FOR_UPDATE:
             return {

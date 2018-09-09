@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Col } from 'reactstrap';
-import { deleteUser, selectForUpdate } from './UserForm/actions'
+import { deleteUser, selectForUpdate } from './actions'
 
 const mapState = state => {
     return {

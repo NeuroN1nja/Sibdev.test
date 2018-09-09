@@ -5,6 +5,7 @@ import Dashboard from './Dashboard'
 import NavBar from './NavBar'
 import PrivateRoute from './PrivateRoute'
 import Settings from './Settings'
+import ApiView from './ApiView/ApiView'
 
 
 class App extends Component {
@@ -13,9 +14,12 @@ class App extends Component {
         return (
             <div>
                 <NavBar />
-                <Route exact path='/' component={Home} />
-                <PrivateRoute path='/dashboard' component={Dashboard} />
-                <PrivateRoute path='/settings' component={Settings} />
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <PrivateRoute path='/dashboard' component={Dashboard} />
+                    <PrivateRoute path='/settings' component={Settings} />
+                    <PrivateRoute path='/:id' component={ApiView} />
+                </Switch>
             </div>
         );
     }

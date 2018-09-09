@@ -10,7 +10,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux'
 import { checkAuth } from './helpers'
-import { activeUser } from './UserForm/actions'
+import { activeUser } from './Users/actions'
 import { Link } from 'react-router-dom'
 
 
@@ -49,7 +49,6 @@ class NavBar extends Component {
   render() {
     return (
       <Navbar color='dark' light expand='md'>
-        {console.log('renderNavBar')}
         <h1 className='logo'>TestApp</h1>
         {checkAuth() &&
           <Nav className="ml-left" navbar>

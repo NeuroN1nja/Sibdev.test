@@ -5,6 +5,9 @@ import { reduxForm, Field } from 'redux-form'
 import TextInput from './TextInput'
 import { connect } from 'react-redux'
 import { addUser, updateUser, activeUser, cancelUpdating} from './actions'
+import { shuffle } from '../helpers'
+
+const apiList = ['drupal', 'gify', 'bbc', 'nyt', 'anime']
 
 const actions = {
   addUser,
@@ -14,7 +17,12 @@ const actions = {
 }
 
 const mapState = state => {
-  let user = {}
+  let user = {
+    name: '',
+    lastname: 'Фамилия',
+    about: 'Описание нового пользователя',
+    city: 'Город'
+  }
 
   if (state.selectedUser.readyForUpdate) {
     user = state.selectedUser
@@ -49,11 +57,12 @@ class CreateUserForm extends Component {
   }
 
   onFormSubmit = (values) => {
+    let cards = shuffle(apiList)
     if (this.props.selectedUser && this.props.selectedUser.readyForUpdate) {
       this.props.updateUser(values)
       this.props.activeUser(values)
     } else {
-      this.props.addUser(values)
+      this.props.addUser(values, cards)
     }
     this.props.reset()
   }
@@ -70,7 +79,6 @@ class CreateUserForm extends Component {
   }
 
   render() {
-    console.log('render form', this.state.user, this.props)
     return (
       <Col sm={{ size: 4, order: 2, offset: 1 }}>
         <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>

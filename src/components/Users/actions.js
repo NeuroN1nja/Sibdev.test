@@ -7,7 +7,7 @@ export const CANCEL_UPDATING = 'CANCEL_UPDATING'
 
 let nextId = 0;
 
-export function addUser(user) {
+export function addUser(user, cards) {
     const { name, lastname, about, city } = user
     return {
         type: ADD_USER,
@@ -15,19 +15,21 @@ export function addUser(user) {
         name,
         lastname,
         about,
-        city
+        city,
+        cards
     }
 }
 
 export function activeUser(user) {
-    const { name, lastname, about, city, id } = user
+    const { name, lastname, about, city, id, cards } = user
     return {
         type: ACTIVE_USER,
         id,
         name,
         lastname,
         about,
-        city
+        city,
+        cards
     }
 }
 
@@ -51,7 +53,7 @@ export function cancelUpdating() {
 }
 
 export function updateUser(user) {
-    const { name, lastname, about, city, id } = user
+    const { name, lastname, about, city, id, cards } = user
     return {
         type: UPDATE_USER,
         id,
@@ -59,6 +61,7 @@ export function updateUser(user) {
         lastname,
         about,
         city,
-        readyForUpdate: false
+        readyForUpdate: false,
+        cards
     }
 }

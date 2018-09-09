@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
-import { users, selectedUser} from '../components/UserForm/reducers'
+import { users, selectedUser} from '../components/Users/reducers'
+import { allData } from '../components/ApiView/reducers'
 
 let defaultState = {}
 
 export default combineReducers({
     form: formReducer,
     users,
-    selectedUser
+    selectedUser,
+    allData
 })
