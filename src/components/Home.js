@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router-dom'
 import { checkAuth } from './helpers'
 import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
+import { connect } from 'react-redux'
+import { login } from './Login/actions'
+
 
 class Home extends Component {
     state = {
         email: '',
-        password: '',
-        logged: false
+        password: ''
     }
 
     handleInputChange = (e) => {
@@ -22,9 +24,9 @@ class Home extends Component {
         localStorage.setItem('TestAppAuthToken', token)
         this.setState({
             email: '',
-            password: '',
-            logged: true
+            password: ''
         })
+        this.props.login()
     }
 
     render() {
@@ -75,4 +77,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default connect(null, {login})(Home);

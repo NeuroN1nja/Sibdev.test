@@ -29,16 +29,16 @@ class ActiveUser extends Component {
         <Col sm={{ size: 6, order: 2, offset: 1 }}>
             {this.props.user.name &&
                 <div>
-                    <h4>Name:</h4>
+                    <h5>Name:</h5>
                     <p>{this.props.user.name}</p>
-                    <h4>Lastname:</h4>
+                    <h5>Lastname:</h5>
                     <p>{this.props.user.lastname}</p>
-                    <h4>About:</h4>
+                    <h5>About:</h5>
                     <p>{this.props.user.about}</p>
-                    <h4>City:</h4>
+                    <h5>City:</h5>
                     <p>{this.props.user.city}</p>
-                    <Button onClick={this.startUpdatingUser}>Update</Button>{' '}
-                    <Button onClick={this.userDelete}>Delete</Button>
+                    <Button outline color="primary" onClick={this.startUpdatingUser}>Update</Button>{' '}
+                    <Button outline color="danger" onClick={this.userDelete}>Delete</Button>
                 </div>
             }
         </Col>

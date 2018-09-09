@@ -17,7 +17,8 @@ import { Link } from 'react-router-dom'
 const mapState = state => {
   return {
     users: state.users,
-    user: state.selectedUser
+    user: state.selectedUser,
+    logged: state.logged
   }
 }
 
@@ -47,6 +48,7 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log('render Navbar')
     return (
       <Navbar color='dark' light expand='md'>
         <h1 className='logo'>TestApp</h1>

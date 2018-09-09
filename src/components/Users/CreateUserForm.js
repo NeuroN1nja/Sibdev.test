@@ -17,12 +17,7 @@ const actions = {
 }
 
 const mapState = state => {
-  let user = {
-    name: '',
-    lastname: 'Фамилия',
-    about: 'Описание нового пользователя',
-    city: 'Город'
-  }
+  let user = {}
 
   if (state.selectedUser.readyForUpdate) {
     user = state.selectedUser
@@ -110,8 +105,8 @@ class CreateUserForm extends Component {
             placeholder='City'
             label={'City'}
           />
-          <Button>Save</Button>{' '}
-          <Button onClick={this.onFormCancel}>Reset</Button>
+          <Button outline color="success" >Save</Button>{' '}
+          <Button outline color="secondary" onClick={this.onFormCancel}>Cancel</Button>
         </Form>
       </Col>
     )
