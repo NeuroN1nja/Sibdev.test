@@ -1,5 +1,5 @@
 # Тестовое задание
-[Сайт приложения](https://gracious-benz-8db175.netlify.com/dashboard)
+[Сайт приложения](https://gracious-benz-8db175.netlify.com)
 
 # Как запустить:
 
