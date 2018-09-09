@@ -27,14 +27,6 @@ const actions = {
 
 export class ApiView extends Component {
 
-    // componentDidMount() {
-    //     console.log('ololo')
-    //     if (!this.props.user.cards.includes(this.props.match.params.id)) {
-            
-    //         this.props.history.push('/dashboard')
-    //     }
-    // }
-
     componentWillReceiveProps(nextProps) {
         if (this.props.user !== nextProps.user) {
             this.props.history.push('/dashboard')
