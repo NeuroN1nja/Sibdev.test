@@ -4,8 +4,6 @@ import { users, selectedUser} from '../components/Users/reducers'
 import { allData } from '../components/ApiView/reducers'
 import { logged } from '../components/Login/reducers'
 
-let defaultState = {}
-
 export default combineReducers({
     form: formReducer,
     users,

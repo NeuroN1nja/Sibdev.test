@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getData } from './actions'
-import { Redirect, Route } from 'react-router-dom'
+import { ListGroup, ListGroupItem } from 'reactstrap'
+import { Redirect } from 'react-router-dom'
 
 const mapState = state => {
     return {
@@ -39,19 +40,23 @@ export class ApiView extends Component {
     if (this.props.loading) {
           return 'loading'
     }
-    
+
+    if (this.props.user.id === undefined
+        || !this.props.user.cards.includes(card)) {
+        return <Redirect to='/' />
+    }
 
     return (
-        <div>
+        <ListGroup>
             {this.props.data[card][mapDataApi[card]] &&
                 this.props.data[card][mapDataApi[card]].map(item => (
-                    <li key={item.url}>
+                    <ListGroupItem key={item.url}>
                         <h3>{item.title}</h3>
                         <a href={item.url}>{item.url}</a>
-                    </li>
+                    </ListGroupItem>
                 ))
             }
-        </div>
+        </ListGroup>
     )
   }
 }

@@ -1,5 +1,5 @@
-import { GET_DATA, GET_GIFY } from './actions'
-import { START, SUCCESS, FAIL  } from '../../redux/actions'
+import { GET_DATA } from './actions'
+import { START, SUCCESS } from '../../redux/actions'
 
 
 let defaultState = {
@@ -19,6 +19,7 @@ export function allData(state = defaultState, action) {
                 loading: false,
                 [action.value]: action.data
             }
-    };
-    return state
+        default:
+            return state
+    }
 }

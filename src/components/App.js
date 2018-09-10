@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from './Home'
 import Dashboard from './Dashboard'
 import NavBar from './NavBar'
@@ -18,7 +18,8 @@ class App extends Component {
                     <Route exact path='/' component={Home} />
                     <PrivateRoute path='/dashboard' component={Dashboard} />
                     <PrivateRoute path='/settings' component={Settings} />
-                    <PrivateRoute path='/:id' component={ApiView} />
+                    <PrivateRoute path='/api/:id' component={ApiView} />
+                    <Redirect to='/' />
                 </Switch>
             </div>
         );

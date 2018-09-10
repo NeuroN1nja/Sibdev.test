@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import {
-    Navbar,
-    Nav,
-    NavItem,
-    ButtonDropdown,
-    DropdownMenu,
-    DropdownItem,
-    DropdownToggle
-} from 'reactstrap';
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  ButtonDropdown
+} from 'reactstrap'
 import { connect } from 'react-redux'
 import { checkAuth } from './helpers'
 import { activeUser } from './Users/actions'
@@ -30,7 +32,8 @@ const actions = {
 class NavBar extends Component {
   state = {
     dropDownValue: '',
-    dropdownOpen: false
+    dropdownOpen: false,
+    isMenuOpen: false
   }
 
   changeValue = e => {
@@ -41,6 +44,12 @@ class NavBar extends Component {
     this.props.activeUser(activeUser)
   }
 
+  toggle = () => {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen
+    });
+  }
+
   toggleUserItem = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
@@ -48,11 +57,12 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log('render Navbar')
     return (
       <Navbar color='dark' light expand='md'>
         <h1 className='logo'>TestApp</h1>
+        <NavbarToggler onClick={this.toggle} />
         {checkAuth() &&
+          <Collapse isOpen={this.state.isMenuOpen} navbar>
           <Nav className="ml-left" navbar>
             <NavItem>
               <Link className='nav-link-router' to="/settings/">Settings</Link>
@@ -80,7 +90,7 @@ class NavBar extends Component {
             </ButtonDropdown>
             
           </Nav>
-
+        </Collapse>
         }
       </Navbar>
     )

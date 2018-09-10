@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Col, Button, Row } from 'reactstrap';
+import { Form, Col, Button, Card } from 'reactstrap';
 import { composeValidators, combineValidators, isRequired, hasLengthGreaterThan } from 'revalidate'
 import { reduxForm, Field } from 'redux-form'
 import TextInput from './TextInput'
@@ -17,7 +17,12 @@ const actions = {
 }
 
 const mapState = state => {
-  let user = {}
+  let user = {
+    name: 'asdfasdf',
+    lastname: 'asdfasdf',
+    about: 'asdfasdfasdfasdfasdfasdf',
+    city: 'asdfasdfasdf'
+  }
 
   if (state.selectedUser.readyForUpdate) {
     user = state.selectedUser
@@ -75,39 +80,41 @@ class CreateUserForm extends Component {
 
   render() {
     return (
-      <Col sm={{ size: 4, order: 2, offset: 1 }}>
-        <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
-          <Field
-            name='name'
-            type='text'
-            component={TextInput}
-            placeholder='User name'
-            label={'Name'}
-          />
-          <Field
-            name='lastname'
-            type='text'
-            component={TextInput}
-            placeholder='User lastname'
-            label={'Lastame'}
-          />
-          <Field
-            name='about'
-            type='textarea'
-            component={TextInput}
-            placeholder='About'
-            label={'About'}
-          />
-          <Field
-            name='city'
-            type='text'
-            component={TextInput}
-            placeholder='City'
-            label={'City'}
-          />
-          <Button outline color="success" >Save</Button>{' '}
-          <Button outline color="secondary" onClick={this.onFormCancel}>Cancel</Button>
-        </Form>
+      <Col sm='6'>
+        <Card body>
+          <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
+            <Field
+              name='name'
+              type='text'
+              component={TextInput}
+              placeholder='User name'
+              label={'Name'}
+            />
+            <Field
+              name='lastname'
+              type='text'
+              component={TextInput}
+              placeholder='User lastname'
+              label={'Lastame'}
+            />
+            <Field
+              name='about'
+              type='textarea'
+              component={TextInput}
+              placeholder='About'
+              label={'About'}
+            />
+            <Field
+              name='city'
+              type='text'
+              component={TextInput}
+              placeholder='City'
+              label={'City'}
+            />
+            <Button outline color="success" >Save</Button>{' '}
+            <Button outline color="secondary" onClick={this.onFormCancel}>Cancel</Button>
+          </Form>
+        </Card>
       </Col>
     )
   }

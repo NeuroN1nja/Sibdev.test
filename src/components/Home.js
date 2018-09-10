@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Route } from 'react-router-dom'
 import { checkAuth } from './helpers'
-import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import { connect } from 'react-redux'
 import { login } from './Login/actions'
 

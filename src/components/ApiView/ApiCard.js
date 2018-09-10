@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, Button, CardTitle, Col } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getData } from './actions'
@@ -37,10 +37,10 @@ class ApiCard extends Component {
           sm={{ size: 4, order: 2, offset: 1 }}
         >
             <div className='svg-logo-box'>
-              <img className='svg-logo' src={`/assets/${this.props.card}.svg`}></img>
+              <img alt={this.props.card} className='svg-logo' src={`/assets/${this.props.card}.svg`}></img>
             </div>
             <CardTitle>{mapCardDescription[this.props.card]}</CardTitle>
-            <Link to={`/${this.props.card}`}>
+            <Link to={`/api/${this.props.card}`}>
               <Button outline color="primary">
                 View
               </Button>

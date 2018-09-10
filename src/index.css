@@ -31,9 +31,9 @@ body {
 }
 
 .api-card {
-  height: 250px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 
@@ -41,4 +41,8 @@ body {
     padding: 10px;
     background-color: white;
     opacity: 0.6;
+}
+
+.col, .col-sm-6 {
+    margin-top: 30px;
 }

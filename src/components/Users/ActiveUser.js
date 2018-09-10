@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button, Col } from 'reactstrap';
 import { deleteUser, selectForUpdate } from './actions'
+import { Card, Button, Col } from 'reactstrap'
 
 const mapState = state => {
     return {
@@ -26,9 +26,9 @@ class ActiveUser extends Component {
 
   render() {
     return (
-        <Col sm={{ size: 6, order: 2, offset: 1 }}>
+        <Col sm='6'>
             {this.props.user.name &&
-                <div>
+                <Card body>
                     <h5>Name:</h5>
                     <p>{this.props.user.name}</p>
                     <h5>Lastname:</h5>
@@ -37,9 +37,11 @@ class ActiveUser extends Component {
                     <p>{this.props.user.about}</p>
                     <h5>City:</h5>
                     <p>{this.props.user.city}</p>
+                    <div>
                     <Button outline color="primary" onClick={this.startUpdatingUser}>Update</Button>{' '}
                     <Button outline color="danger" onClick={this.userDelete}>Delete</Button>
-                </div>
+                    </div>
+                </Card>
             }
         </Col>
     )

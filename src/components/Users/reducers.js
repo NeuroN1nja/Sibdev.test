@@ -19,9 +19,10 @@ export const users = (state = [], action) => {
                 ...newState,
                 {...action}
             ]
+        default:
+            return state
 
     }
-    return state
 }
 
 export const selectedUser = (state = {}, action) => {
@@ -46,6 +47,7 @@ export const selectedUser = (state = {}, action) => {
 
         case DELETE_USER:
             return {}
+        default:
+            return state
     }
-    return state
 }
