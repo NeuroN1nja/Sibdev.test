@@ -17,12 +17,7 @@ const actions = {
 }
 
 const mapState = state => {
-  let user = {
-    name: 'asdfasdf',
-    lastname: 'asdfasdf',
-    about: 'asdfasdfasdfasdfasdfasdf',
-    city: 'asdfasdfasdf'
-  }
+  let user = {}
 
   if (state.selectedUser.readyForUpdate) {
     user = state.selectedUser
