@@ -1,5 +1,5 @@
 # Тестовое задание
-[Сайт приложения](https://gracious-benz-8db175.netlify.com)
+[Сайт приложения](https://testovoe-733db.firebaseapp.com)
 
 # Как запустить:
 
