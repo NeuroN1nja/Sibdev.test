@@ -41,7 +41,7 @@ class ApiCard extends Component {
             </div>
             <CardTitle>{mapCardDescription[this.props.card]}</CardTitle>
             <Link to={`/api/${this.props.card}`}>
-              <Button outline color="primary">
+              <Button outline color='primary'>
                 View
               </Button>
             </Link>

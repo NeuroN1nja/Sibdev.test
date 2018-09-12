@@ -106,8 +106,8 @@ class CreateUserForm extends Component {
               placeholder='City'
               label={'City'}
             />
-            <Button outline color="success" >Save</Button>{' '}
-            <Button outline color="secondary" onClick={this.onFormCancel}>Cancel</Button>
+            <Button outline color='success' >Save</Button>{' '}
+            <Button outline color='secondary' onClick={this.onFormCancel}>Cancel</Button>
           </Form>
         </Card>
       </Col>

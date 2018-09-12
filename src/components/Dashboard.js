@@ -10,8 +10,6 @@ const mapState = state => {
 }
 
 class Dashboard extends Component {
-    state = {  }
-
     render() {
         return (
             <Container>

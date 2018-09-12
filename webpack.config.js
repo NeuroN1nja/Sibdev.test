@@ -1,5 +1,4 @@
 var path = require('path')
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -55,14 +54,17 @@ module.exports = {
                 }
             },
             {
-			    test: /\.(ogg|mp3|wav|mpe?g)$/i,
-			    use: 'file-loader'
-			}
+                test: /\.(ogg|mp3|wav|mpe?g)$/i,
+                use: 'file-loader'
+            },
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
+            inject: false,
+            hash: true,
             template: './index.html',
+            filename: 'index.html'
         })
     ],
     optimization: {

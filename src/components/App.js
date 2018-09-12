@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from './Home'
 import Dashboard from './Dashboard'
@@ -8,9 +8,8 @@ import Settings from './Settings'
 import ApiView from './ApiView/ApiView'
 
 
-class App extends Component {
-    state = {  }
-    render() {
+const App = (props) => {
+
         return (
             <div>
                 <NavBar />
@@ -22,8 +21,7 @@ class App extends Component {
                     <Redirect to='/' />
                 </Switch>
             </div>
-        );
-    }
+        )
 }
 
 export default App;

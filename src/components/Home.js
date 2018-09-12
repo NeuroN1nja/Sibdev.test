@@ -31,38 +31,38 @@ class Home extends Component {
 
     render() {
 
-        const { from } = this.props.location.state || { from: { pathname: "/settings" } }
+        const { from } = this.props.location.state || { from: { pathname: '/settings' } }
 
         if (this.state.logged) {
             return <Redirect to={from} />;
         }
         return (
             
-            <Route exact path="/" render={() => (
+            <Route exact path='/' render={() => (
                 checkAuth() ? (
-                    <Redirect to="/dashboard" />
+                    <Redirect to='/dashboard' />
                 ) : (
                         <Col sm={4}>
                             <Form onSubmit={this.handleSubmit}>
                                 <FormGroup>
-                                    <Label for="exampleEmail">Email</Label>
+                                    <Label for='exampleEmail'>Email</Label>
                                     <Input
-                                        type="email"
-                                        name="email"
-                                        id="Email"
-                                        placeholder="Email"
+                                        type='email'
+                                        name='email'
+                                        id='Email'
+                                        placeholder='Email'
                                         value={this.state.email}
                                         onChange={this.handleInputChange}
                                     />
                                 </FormGroup>
 
                                 <FormGroup>
-                                    <Label for="examplePassword">Password</Label>
+                                    <Label for='examplePassword'>Password</Label>
                                     <Input
-                                        type="password"
-                                        name="password"
-                                        id="Password"
-                                        placeholder="Password"
+                                        type='password'
+                                        name='password'
+                                        id='Password'
+                                        placeholder='Password'
                                         value={this.state.password}
                                         onChange={this.handleInputChange}
                                     />

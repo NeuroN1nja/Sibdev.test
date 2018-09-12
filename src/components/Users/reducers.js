@@ -13,12 +13,13 @@ export const users = (state = [], action) => {
             return state.filter(user => user.id !== id)
         
         
-        case UPDATE_USER:
+        case UPDATE_USER: {
             let newState = state.filter(user => user.id !== id)
             return [
                 ...newState,
                 {...action}
             ]
+        }
         default:
             return state
 

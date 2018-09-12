@@ -38,8 +38,8 @@ class ActiveUser extends Component {
                     <h5>City:</h5>
                     <p>{this.props.user.city}</p>
                     <div>
-                    <Button outline color="primary" onClick={this.startUpdatingUser}>Update</Button>{' '}
-                    <Button outline color="danger" onClick={this.userDelete}>Delete</Button>
+                    <Button outline color='primary' onClick={this.startUpdatingUser}>Update</Button>{' '}
+                    <Button outline color='danger' onClick={this.userDelete}>Delete</Button>
                     </div>
                 </Card>
             }
